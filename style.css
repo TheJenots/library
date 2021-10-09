@@ -1,0 +1,12 @@
+table {
+  border: 1px solid yellow;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+form {
+  display: none;
+}
