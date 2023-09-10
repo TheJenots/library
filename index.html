@@ -5,25 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <h1>My Library</h1>
     <button id="addNewBook">Add new book</button>
-    <form id="addBook" action="">
-        <label for="title">Book title</label>
-        <input type="text" name="title" id="title"><br>
-
-        <label for="author">Author of the book</label>
-        <input type="text" name="author" id="author"><br>
-
-        <label for="pages">Page count</label>
-        <input type="number" name="pages" id="pages"><br>
-
-        <label for="read">Is read</label>
-        <input type="checkbox" id="isRead"><br>
-
-        <input type="submit" value="Submit" id="submit">
+    <form id="addBook" action="" class="modal animate hide">
+        <div>
+            <label for="title">Book title</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="author">Author of the book</label>
+            <input type="text" name="author" id="author" required>
+        </div>
+        <div>
+            <label for="pages">Page count</label>
+            <input type="number" name="pages" id="pages" required>
+        </div>
+        <div>
+            <label for="isRead">Is read
+                <input type="checkbox" id="isRead">
+            </label>
+        </div>                  
+        <div>
+            <button type="submit" id="submit">Submit</button>
+            <button class="clear">Clear</button>
+            <button class="cancel">Cancel</button>
+        </div>
     </form>
+    <table>
+        <thead>
+            <th>Book title</th>
+            <th>Author of the book</th>
+            <th>Page count</th>
+            <th>Is read</th>
+            <th>Remove</th>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
 </body>
 </html>

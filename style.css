@@ -1,12 +1,177 @@
-table {
-  border: 1px solid yellow;
+:root {
+  --clr-bg-main: rgb(214, 204, 194);
+  --clr-bg-cover: linear-gradient(132deg, rgba(245, 235, 224,0.7) 0%, rgba(227, 213, 202,0.8) 35%, rgba(213, 189, 175, 0.7) 70%, rgba(214, 204, 194,0.7) 100%);
+  --clr-bg-tr-1: rgb(245, 235, 224, 0.5);
+  --clr-bg-tr-2: rgb(227, 213, 202, 0.5);
+  --clr-txt-main: rgb(0, 18, 0);
+  --clr-txt-accent: rgb(237, 237, 233);
+  --clr-btn-regular: rgb(213, 189, 175);
+  --fm-main: 'Roboto';
+  --fm-accent: '28 Days Later';
+  --fs-xs: 0.5rem;
+  --fs-s: 0.8rem;
+  --fs-m: 1rem;
+  --fs-l: 1.5rem;
+  --fs-xl: 5rem;
+  --modal-width: 400px;
+  --box-shadow: 2px 2px 2px rgb(196, 174, 161);
 }
 
-th,
+@font-face {
+  font-family: '28 Days Later';
+  src: url(assets/28_Days_Later.ttf);
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1rem;
+  background-image: var(--clr-bg-cover), url(assets/cats-7865933_1920.jpg);
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: var(--fm-main), sans-serif;
+  color: var(--clr-txt-main);
+}
+
+h1 {
+  font-family: var(--fm-accent), sans-serif;
+  font-size: var(--fs-xl);
+}
+
+th {
+  padding: 10px 20px;
+  background: rgb(0, 18, 0, 0.6);
+  color: var(--clr-txt-accent);
+  text-shadow: -1px 1px 0 var(--clr-txt-main), 1px 1px 0 var(--clr-txt-main), 1px -1px 0 var(--clr-txt-main), -1px -1px 0 var(--clr-txt-main);
+  font-size: var(--fs-m);
+  font-weight: 700;
+}
+
+tr:nth-child(odd){
+  background: var(--clr-bg-tr-1);
+  
+}
+
+tr:nth-child(even) {
+  background: var(--clr-bg-tr-2);
+}
+
 td {
-  border: 1px solid black;
+  padding: 10px 20px;
+  font-size: var(--fs-m);
+  font-weight: 500;
 }
 
-form {
+button {
+  background: var(--clr-btn-regular);
+  color: var(--clr-txt-main);
+  padding: 10px 20px;
+  border: solid 1px rgb(196, 174, 161);
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  font-size: var(--fs-m);
+  font-weight: 600; 
+  transition: transform 0.5s ease-in-out;
+}
+
+button:hover, button:focus {
+  background-image: linear-gradient(90deg, var(--clr-bg-main) 0%, var(--clr-txt-accent) 50%, var(--clr-bg-main) 100%);
+  animation: slide 10s linear infinite;
+  --webkit-animation: slide 10s linear infinite;
+  outline: none;
+  transform: scale(1.1);
+}
+
+@keyframes slide {
+  to {
+    background-position: 20vw;
+  }
+}
+
+@-webkit-keyframes slide {
+  to {
+    background-position: 20vw;
+  }
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  z-index: 1;
+  left: calc((100vw - var(--modal-width)) / 2);
+  right: calc((100vw - var(--modal-width)) / 2);
+  top: 5%;
+  bottom: 5%;
+  width: var(--modal-width);
+  min-height: 80vh;
+  background: rgba(0, 18, 0, 0.9);
+  color: var(--clr-txt-accent);
+  font-size: var(--fs-m);
+  text-shadow: -1px 1px 0 var(--clr-txt-main), 1px 1px 0 var(--clr-txt-main), 1px -1px 0 var(--clr-txt-main), -1px -1px 0 var(--clr-txt-main);
+}
+
+.modal div {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.modal input {
+  padding: 10px 15px;
+  font-size: var(--fs-m);
+  color: var(--clr-txt-main);
+}
+
+.modal input[type="number"] {
+  padding-right: 5px;
+}
+
+.modal div:last-child {
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+}
+
+#submit {
+  grid-column: 1 / -1;
+}
+
+#submit:hover, #submit:focus {
+  background-image: linear-gradient(90deg, #778d4f 0%, var(--clr-txt-accent) 50%, #778d4f 100%);
+  box-shadow: 2px 2px 2px #778d4f;
+}
+
+.clear:hover, .clear:focus {
+  background-image: linear-gradient(90deg, rgb(249, 153, 153) 0%, var(--clr-txt-accent) 50%, rgb(249, 153, 153) 100%);
+  box-shadow: 2px 2px 2px rgb(249, 153, 153);
+}
+
+.cancel:hover, .cancel:focus {
+  background-image: linear-gradient(90deg, rgb(243, 19, 19) 0%, var(--clr-txt-accent) 50%, rgb(243, 19, 19) 100%);
+  box-shadow: 2px 2px 2px rgb(243, 19, 19);
+}
+
+.hide {
   display: none;
 }
+
+
+.animate {
+  -webkit-animation: animatezoom 0.7s;
+  animation: animatezoom 0.7s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
